@@ -1,0 +1,23 @@
+extends ../shared/template
+block content
+  h2 Address Book
+  .row
+    .col-xs-12
+      table.table.table-striped
+        thead
+          th Name
+          th Twitter
+          th Facebook
+          th Address
+        tbody
+          each address in addresses
+            tr(style='background-color:#{address.color};')
+              td= address.name
+              td= address.twitter
+              td= address.facebook
+              td= address.address
+
+
+block scripts
+  script(src='/js/user/home.js')
+
