@@ -39,7 +39,7 @@ module.exports = function(app, express){
   app.get('/addresses', addresses.index);
   app.post('/addresses', addresses.create);
   app.get('/addresses/new', addresses.new);
-
+  app.post('/addresses/:id/delete', addresses.destroy);
 
   console.log('Express: Routes Loaded');
 };

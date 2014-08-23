@@ -3,7 +3,7 @@ block content
   h2 Address Book
   .row
     .col-xs-12
-      table.table.table-striped
+      table.table.table-hover
         thead
           th Name
           th Twitter
@@ -11,13 +11,17 @@ block content
           th Address
         tbody
           each address in addresses
-            tr(style='background-color:#{address.color};')
-              td= address.name
-              td= address.twitter
-              td= address.facebook
-              td= address.address
+            .address(data-address-id=address._id.toString())
+              tr(style='background-color:#{address.color};')
+                td= address.name
+                td: a(href='http://www.twitter.com/#{address.twitter}')= address.twitter
+                td= address.facebook
+                td= address.address
+                td
+                  form(method='post', action='/addresses/#{address._id}/delete')
+                    button.delete.btn.btn-danger Delete
 
 
 block scripts
-  script(src='/js/user/home.js')
+  script(src='/js/user/addressIndex.js')
 
